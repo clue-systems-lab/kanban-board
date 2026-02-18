@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Lucas + Clue Board",
+    "updated": "2/17/2026, 2:15:06 PM"
+  },
+  "daily": {
+    "date": "2026-02-17",
+    "lucas": [
+      "Finish Cisco Deck Edits",
+      "Coding",
+      "Get ticket for Ren Faire"
+    ],
+    "clue": [
+      "Reorganize board (ask Lucas how)",
+      "Prep OAuth steps for clue.ai.lab@gmail.com",
+      "Set-up Github with Lucas's help"
+    ]
+  },
+  "columns": [
+    {
+      "id": "inbox",
+      "name": "Inbox"
+    },
+    {
+      "id": "next",
+      "name": "Next"
+    },
+    {
+      "id": "doing",
+      "name": "Doing"
+    },
+    {
+      "id": "waiting",
+      "name": "Waiting"
+    },
+    {
+      "id": "done",
+      "name": "Done"
+    }
+  ],
+  "cards": [
+    {
+      "id": "ceozbpo",
+      "column": "inbox",
+      "text": "This board is cool!",
+      "owner": "shared"
+    },
+    {
+      "id": "oauth1",
+      "column": "next",
+      "text": "Redo OAuth setup for clue.ai.lab@gmail.com (after work)",
+      "owner": "shared"
+    }
+  ]
+}

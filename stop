@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PIDFILE="$DIR/.server.pid"
+
+if [ ! -f "$PIDFILE" ]; then
+  echo "Board is not running (no pid file)."
+  exit 0
+fi
+
+PID=$(cat "$PIDFILE")
+if kill -0 "$PID" 2>/dev/null; then
+  kill "$PID"
+  sleep 0.2
+  if kill -0 "$PID" 2>/dev/null; then
+    kill -9 "$PID" || true
+  fi
+  echo "Board stopped."
+else
+  echo "Board pid not running. Cleaning up pid file."
+fi
+
+rm -f "$PIDFILE"

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PIDFILE="$DIR/.server.pid"
+LOGFILE="$DIR/.server.log"
+PORT="${1:-8787}"
+BIND="${2:-}"
+
+if [ -z "$BIND" ]; then
+  BIND=$(ip -brief addr show tailscale0 2>/dev/null | awk '{print $3}' | cut -d/ -f1 | head -n1)
+fi
+if [ -z "$BIND" ]; then
+  BIND="127.0.0.1"
+fi
+
+if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+  echo "Board already running (PID $(cat "$PIDFILE"))."
+  echo "URL: http://$BIND:$PORT"
+  exit 0
+fi
+
+nohup python3 "$DIR/server.py" --bind "$BIND" --port "$PORT" > "$LOGFILE" 2>&1 &
+echo $! > "$PIDFILE"
+
+sleep 0.2
+
+echo "Board running." 
+echo "URL: http://$BIND:$PORT"

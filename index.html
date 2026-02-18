@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lucas + Clue Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1 id="board-title">Lucas + Clue Board</h1>
+      <div class="meta" id="board-meta"></div>
+    </div>
+    <div class="actions">
+      <button id="refresh">Refresh</button>
+      <button id="save">Save</button>
+    </div>
+  </header>
+
+  <section class="daily">
+    <div class="daily-header">
+      <h2>Daily Objectives</h2>
+      <span id="daily-date"></span>
+    </div>
+    <div class="daily-columns">
+      <div class="daily-col">
+        <h3>Lucas</h3>
+        <ul id="daily-lucas" class="list"></ul>
+        <button class="add" data-add="daily-lucas">+ Add</button>
+      </div>
+      <div class="daily-col">
+        <h3>Clue</h3>
+        <ul id="daily-clue" class="list"></ul>
+        <button class="add" data-add="daily-clue">+ Add</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="board" id="board"></section>
+
+  <footer>
+    <div class="hint">Click a card to edit. Use ◀ ▶ to move. Keep it light.</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
